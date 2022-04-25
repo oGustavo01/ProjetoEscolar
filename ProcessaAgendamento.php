@@ -1,39 +1,32 @@
 <?php
-$localhost = "localhost";
-$user = "root";
-$passw = "";
-$banco = "salaodebeleza";
+	#Arquivo para conectar com o Banco
+	include('conexao.php');
 
-$conecta = mysqli_connect($localhost, $user, $passw, $banco) or die ("Erro ao conectar");
-
-
-		$date = new DateTime("America/New_York");
-		$date-> FORMAT ('Y-m-d');
-		
-		$localtime = localtime();
-		$localtime_assoc = localtime(time(), true);
-
-if(isset($_POST['cadastrar'])){
-		
-		$name = $_POST['name'];
-		$data = $_POST['date'];
-		$hora = $_POST['time'];
-		$nomeprofi = $_POST['name2'];
-		$servico = $_POST['servico'];
-		$pagamen = $_POST['pagamen'];
-
-		
-		$query = mysqli_query($conecta, "INSERT INTO cadastroagendamento (Nome, Servico, NomeProfissional, Hora, Data, Metodopagamento) 
-		VALUES ('$name', '$servico', '$nomeprofi', '$hora', '$data', '$pagamen')");
-		
-		
-		if($query){
+	if(isset($_POST['cadastrar'])){
 			
-			echo 'Cadastro realizado com sucesso!!';
+			#Variaveis das tags
+			$name = $_POST['name'];
+			$data = $_POST['date'];
+			$hora = $_POST['time'];
+			$nomeprofi = $_POST['name2'];
+			$servico = $_POST['servico'];
+			$pagamen = $_POST['pagamen'];
+
+			#Query para inserir os dados no Banco
+			$query = mysqli_query($conecta, "INSERT INTO cadastroagendamento (Nome, Servico, NomeProfissional, Hora, Data, Metodopagamento) 
+			VALUES ('$name', '$servico', '$nomeprofi', '$hora', '$data', '$pagamen')");
+			
+			#Variaveis das tags
+			$sucesso = file_get_contents("Sucesso.php");
+			$falha = file_get_contents("falha.php");
+			
+			#IF se o banco vai receber os dados ou não
+			if($query){
+				
+				print $sucesso;
+				
 			} else {
-				echo 'Não foi possivel realizar o Cadastro!!';
-			}
+					echo $falha;
+				}
 	} 	
-	
-	
 ?>

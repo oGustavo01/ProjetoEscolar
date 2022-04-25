@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&family=Nunito+Sans:wght@700&family=Ubuntu&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+}
+
+body {
+	background-color: #3B4148;
+}
+
+.barra {
+	align-items: center;
+	display: flex;
+
+}
+
+.opcoes {
+	margin-left: 800px;
+
+}
+
+.navbar-nav {
+	color: white;
+}
+
+.text {
+	background-color: #3B4148;
+	text-align: center;
+	color: #E5DFD9;
+}
+
+.foto img {
+	width: 50%;
+	height: 732px;
+	margin-bottom: auto;
+}
+
+.navbar-brand {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.navbar-nav {
+	font-family: 'Londrina Solid', cursive;
+
+}
+
+.navbar-brand {
+	font-family: 'Nunito Sans', sans-serif;
+
+}
+
+/*Titulos */
+h3,
+h2 {
+	font-family: 'Ubuntu', sans-serif;
+	color: #E5DFD9;
+	font-weight: bold;
+	margin-top: 40px;
+}
+
+/* Textos*/
+section p {
+	font-family: 'Londrina Solid', cursive;
+	color: #E5DFD9;
+	padding-top: 30px;
+	width: 100%;
+	padding-inline: 17em;
+	width: 100%;
+	font-weight: 10;
+	font-size: 20px;
+	line-height: 30px;
+	display: flex;
+	vertical-align: middle;
+	text-align: center;
+	justify-content: center;
+}

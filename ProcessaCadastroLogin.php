@@ -1,10 +1,6 @@
 <?php
-$localhost = "localhost";
-$user = "root";
-$passw = "";
-$banco = "salaodebeleza";
 
-$conecta = mysqli_connect($localhost, $user, $passw, $banco) or die ("Erro ao conectar");
+	include('conexao.php');
 
 
 if(isset($_POST['cadastrar'])){
@@ -16,11 +12,17 @@ if(isset($_POST['cadastrar'])){
 		
 		$query = mysqli_query($conecta, "INSERT INTO cadastrologin (Nome, Email) VALUES ('$name', '$email')");
 		
+		#Variaveis das tags
+		$inicial = file_get_contents("Telainicial.php");
+		$falha = file_get_contents("falha.php");
+		
+		#IF se o banco vai receber os dados ou não
 		if($query){
 			
-			echo 'Cadastro realizado com sucesso!!';
-			} else {
-				echo 'Não foi possivel realizar o Cadastro!!';
+			print $inicial;
+			
+		} else {
+				echo $falha;
 			}
 	} 
 ?>

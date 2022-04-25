@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="StyleRelatorio.css" rel="stylesheet">
+</head>
+
 <body>
+
+<div class="container mt-3">
 
 <h2 style = "text-align: center"> Relatorios do Salão Cabelo na régua </h2>
 
-<p>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
 <?php
 
 $localhost = "localhost";
@@ -18,16 +27,19 @@ $conecta = mysqli_connect($localhost, $user, $passw, $banco) or die ("Erro ao co
 
 <h3 style = "text-align: center"> Relatorio de Agendamentos </h3>
 <center>
-<TABLE border=1>
-<TR>
-<TD>ID</TD>
-<TD>Nome</TD>
-<TD>Nome do Profissional</TD>
-<TD>Serviço</TD>
-<TD>Hora</TD>
-<TD>Data</TD>
-<TD>Forma de pagamento</TD>
-</TR>
+<div class="table-responsive">	
+		<table class="table table-dark table-hover">
+			<thead>	
+			<TR>
+			<TD>ID</TD>
+			<TD>Nome</TD>
+			<TD>Nome do Profissional</TD>
+			<TD>Serviço</TD>
+			<TD>Hora</TD>
+			<TD>Data</TD>
+			<TD>Forma de pagamento</TD>
+			</TR>
+			</thead>
 <?php
 
 	$Resultado = mysqli_query($conecta, $sql);
@@ -75,17 +87,18 @@ while ($tbl = mysqli_fetch_array($Resultado))
 }
 ?>
 </TABLE>
-<p>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
 
 <h3 style = "text-align: center"> Relatorio de Login</h3>
 
-<Table border=1>
-<TR>
-<TD>ID</TD>
-<TD>Nome</TD>
-<TD>E-mail</TD>
-</TR>
-
+<div class="table-responsive">	
+		<table class="table table-dark table-hover">
+			<thead>	
+				<TR>
+				<TD>ID</TD>
+				<TD>Nome</TD>
+				<TD>E-mail</TD>
+				</TR>
+			</thead>	
 <?php
 
 $localhost = "localhost";
@@ -124,19 +137,19 @@ while ($tbl = mysqli_fetch_array($Resultado))
 }
 ?>
 </table>
-<p>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-
 
 <h3 style = "text-align: center"> Relatorio de Cadastro de clientes</h3>
 
-<Table border=1>
-<TR>
-<TD>ID</TD>
-<TD>Nome</TD>
-<TD>E-mail</TD>
-<TD>Senha</TD>
-</TR>
-
+<div class="table-responsive">	
+		<table class="table table-dark table-hover">
+			<thead>
+			<TR>
+			<TD>ID</TD>
+			<TD>Nome</TD>
+			<TD>E-mail</TD>
+			<TD>Senha</TD>
+			</TR>
+			</thead>
 <?php
 	$sql = "SELECT * FROM cadastroclientes";
 	$Resultado = mysqli_query($conecta, $sql);
@@ -171,24 +184,22 @@ while ($tbl = mysqli_fetch_array($Resultado))
 ?>
 </table>
 </br>
-<p>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-
-
-
 <h3 style = "text-align: center"> Relatorio de Cadastro de funcionarios</h3>
 
-<Table border=1>
-<TR>
-<TD>ID</TD>
-<TD>Nome</TD>
-<TD>CPF</TD>
-<TD>Data Nasc</TD>
-<TD>Telefone</TD>
-<TD>E-mail</TD>
-<TD>Endereço</TD>
-<TD>Cargo</TD>
-</TR>
-
+<div class="table-responsive">	
+		<table class="table table-dark table-hover">
+			<thead>
+			<TR>
+			<TD>ID</TD>
+			<TD>Nome</TD>
+			<TD>CPF</TD>
+			<TD>Data Nasc</TD>
+			<TD>Telefone</TD>
+			<TD>E-mail</TD>
+			<TD>Endereço</TD>
+			<TD>Cargo</TD>
+			</TR>
+			</thead>	
 <?php
 	$sql = "SELECT * FROM cadastrofuncionarios";
 	$Resultado = mysqli_query($conecta, $sql);
@@ -241,7 +252,5 @@ while ($tbl = mysqli_fetch_array($Resultado))
 }
 ?>
 </table>
-<p>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-
 </body>
 </html>
